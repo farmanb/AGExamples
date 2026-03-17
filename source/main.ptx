@@ -3,20 +3,24 @@
 
   <docinfo>
 
-    <document-id>authorslastnamelowercase-ShortTitleCamelCase</document-id>
+    <document-id>farman-AlgebraicGeometryExamples</document-id>
 
-    <macros>\newcommand{\foo}{b^{ar}}</macros>
+    <macros>
+      \newcommand{\N}{\mathbb{N}}
+      \newcommand{\Z}{\mathbb{Z}}
+      \newcommand{\Q}{\mathbb{Q}}
+      \newcommand{\R}{\mathbb{R}}
+      \newcommand{\C}{\mathbb{C}}
+    </macros>
     <latex-image-preamble>\usepackage{tikz}</latex-image-preamble>
   </docinfo>
 
-  <article xml:id="shorttitlelowercase">
-    <title>The title of my groundbreaking paper</title>
+  <article xml:id="agexamples">
+    <title>Example</title>
+    <subtitle>Math 4903/5843 (Spring 2026)</subtitle>
 
     <xi:include href="./frontmatter.ptx" />
-    
-    <xi:include href="./introduction.ptx" />
-    <xi:include href="./section-1.ptx" />
-    <xi:include href="./section-2.ptx" />
+    <xi:include href="visualizing_varieties.ptx"/>
   </article>
 
 </pretext>
