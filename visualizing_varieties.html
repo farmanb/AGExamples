@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Visualizing Varieties</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="article">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.19';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.998c9d9ee2a5e7ac.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.98ef3b0c170cd180.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.b12a7b3f0773ebcd.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body id="farman-AlgebraicGeometryExamples" class="pretext article ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="agexamples.html"><span class="title">Example</span> <span class="subtitle">Math 4903/5843 (Spring 2026)</span></a></h1>
+<p class="byline">Blake Farman</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="agexamples-3.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="agexamples.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="agexamples-3.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="visualizing_varieties.html" class="internal"><span class="codenumber">1</span> <span class="title">Visualizing Varieties</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="visualizing_varieties.html#visualizing_curves" class="internal"><span class="codenumber">1.1</span> <span class="title">Basic Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="visualizing_varieties.html#visualizing_surfaces" class="internal"><span class="codenumber">1.2</span> <span class="title">Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="visualizing_varieties.html#visualizing_the_twisted_cubic" class="internal"><span class="codenumber">1.3</span> <span class="title">The Twisted Cubic</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="visualizing_varieties"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Visualizing Varieties</span>
+</h2>
+<section class="introduction" id="visualizing_varieties-2"><div class="para" id="visualizing_varieties-2-1">These are some basic varieties that we can visualize over <span class="process-math">\(\R\text{.}\)</span> The SageMath code below can be reused with the appropriate modifications to visualize other varieties, provided that they live an affine space of dimension at most 3.<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_varieties-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="visualizing_curves"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Basic Curves</span>
+</h3>
+<article class="example example-like" id="visualizing_curves-2"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="visualizing_curves-2-1-1">Sketch the variety defined by the polynomial equation <span class="process-math">\(x^2 + y^2 - 1 = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#visualizing_curves-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="visualizing_curves-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="visualizing_curves-2-2-1">
+<div class="para">In Sage, we can visualize equations in affine 2-space using the <code class="code-inline tex2jax_ignore">implicit_plot</code> function. By default, Sage knows to treat <code class="code-inline tex2jax_ignore">x</code> as a variable. If you want to use other variables, you will need to declare them using the command <code class="code-inline tex2jax_ignore">var('var_name_1, var_name_2, ...')</code>. The function <code class="code-inline tex2jax_ignore">implicit_plot</code> expects, at a minimum, the following arguments:</div>
+<ol class="decimal" id="visualizing_curves-2-2-1-5">
+<li id="visualizing_curves-2-2-1-5-1">
+<div class="para" id="p-derived-visualizing_curves-2-2-1-5-1">An equation of the form <code class="code-inline tex2jax_ignore">expression_1 == expression_2</code>. Sage interprets a single <code class="code-inline tex2jax_ignore">expression</code> as <code class="code-inline tex2jax_ignore">expression == 0</code>.</div>
+<div class="autopermalink" data-description="Item 1"><a href="#visualizing_curves-2-2-1-5-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="visualizing_curves-2-2-1-5-2">
+<div class="para" id="p-derived-visualizing_curves-2-2-1-5-2">For each variable, a range of allowable values expressed as a triple <code class="code-inline tex2jax_ignore">(var_name, min_value, max_value)</code>.</div>
+<div class="autopermalink" data-description="Item 2"><a href="#visualizing_curves-2-2-1-5-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_curves-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="visualizing_curves-2-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x,y')
+implicit_plot(x^2 + y^2 - 1, (x,-1,1), (y,-1,1))
+</script></div>
+<div class="para" id="visualizing_curves-2-2-3">There are several other optional parameters. You can find documentation on these parameters using the <code class="code-inline tex2jax_ignore">?</code> operator as below. This will work for any Sage function, although the helpfulness depends on how well the function was documented by the author.<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_curves-2-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="visualizing_curves-2-2-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">implicit_plot?
+</script></div>
+<div class="autopermalink" data-description="Solution 1.1.1"><a href="#visualizing_curves-2-2" title="Copy heading and permalink for Solution 1.1.1" aria-label="Copy heading and permalink for Solution 1.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.1"><a href="#visualizing_curves-2" title="Copy heading and permalink for Example 1.1" aria-label="Copy heading and permalink for Example 1.1">🔗</a></div></article><article class="example example-like" id="visualizing_curves-3"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="visualizing_curves-3-1-1">Sketch the variety defined by the polynomial equation <span class="process-math">\(xy - x^3 + 1 = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#visualizing_curves-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="visualizing_curves-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="visualizing_curves-3-2-1">
+<div class="para">Note that we can separate the variables in this equation to see that this is just the rational function</div>
+<div class="displaymath process-math" id="visualizing_curves-3-2-1-1">
+\begin{equation*}
+y = \frac{x^3 - 1}{x} = \frac{(x - 1)(x^2 + x + 1)}{x}
+\end{equation*}
+</div>
+<div class="para">We could use <code class="code-inline tex2jax_ignore">implicit_plot</code> to visualize the variety directly, but we can also use the simpler <code class="code-inline tex2jax_ignore">plot</code> function.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_curves-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="visualizing_curves-3-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">plot((x^3 - 1)/x, (-5,5))
+</script></div>
+<div class="autopermalink" data-description="Solution 1.2.1"><a href="#visualizing_curves-3-2" title="Copy heading and permalink for Solution 1.2.1" aria-label="Copy heading and permalink for Solution 1.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.2"><a href="#visualizing_curves-3" title="Copy heading and permalink for Example 1.2" aria-label="Copy heading and permalink for Example 1.2">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.1: Basic Curves"><a href="#visualizing_curves" title="Copy heading and permalink for Subsection 1.1: Basic Curves" aria-label="Copy heading and permalink for Subsection 1.1: Basic Curves">🔗</a></div></section><section class="subsection" id="visualizing_surfaces"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Surfaces</span>
+</h3>
+<div class="para" id="visualizing_surfaces-2">For the basic curves above, Sage is overkill. However, it is quite handy for surfaces. The main tool we will need is <code class="code-inline tex2jax_ignore">implicit_plot3d</code>, which works essentially the same way, but allows expressions with up to three variables. We will utilize the variables <code class="code-inline tex2jax_ignore">x</code>, <code class="code-inline tex2jax_ignore">y</code>, and <code class="code-inline tex2jax_ignore">z</code> using <code class="code-inline tex2jax_ignore">var('x,y,z')</code>, but there’s nothing particularly special about these naems.<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_surfaces-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="visualizing_surfaces-3"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="visualizing_surfaces-3-1-1">Sketch the variety defined by the poylnomial equation <span class="process-math">\(z - x^2 - y^2 = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#visualizing_surfaces-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="visualizing_surfaces-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div id="visualizing_surfaces-3-2-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x,y,z')
+implicit_plot3d(z - x^2 - y^2, (x,-1,1), (y,-1,1), (z,0,1))
+</script></div>
+<div class="autopermalink" data-description="Solution 1.3.1"><a href="#visualizing_surfaces-3-2" title="Copy heading and permalink for Solution 1.3.1" aria-label="Copy heading and permalink for Solution 1.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.3"><a href="#visualizing_surfaces-3" title="Copy heading and permalink for Example 1.3" aria-label="Copy heading and permalink for Example 1.3">🔗</a></div></article><article class="example example-like" id="visualizing_surfaces-4"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="visualizing_surfaces-4-1-1">Sketch the variety defined by the polynomial equation <span class="process-math">\(z^2 - x^2 - y^2 = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#visualizing_surfaces-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="visualizing_surfaces-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div id="visualizing_surfaces-4-2-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x,y,z')
+implicit_plot3d(z^2 - x^2 - y^2, (x,-1,1), (y,-1,1), (z,-1,1))
+</script></div>
+<div class="autopermalink" data-description="Solution 1.4.1"><a href="#visualizing_surfaces-4-2" title="Copy heading and permalink for Solution 1.4.1" aria-label="Copy heading and permalink for Solution 1.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.4"><a href="#visualizing_surfaces-4" title="Copy heading and permalink for Example 1.4" aria-label="Copy heading and permalink for Example 1.4">🔗</a></div></article><article class="example example-like" id="visualizing_surfaces-5"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="visualizing_surfaces-5-1-1">Sketch the variety defined by <span class="process-math">\(x^2 - y^2z^2 + z^3 = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#visualizing_surfaces-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="visualizing_surfaces-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="visualizing_surfaces-5-2-1">If you’re following along in the book, you’ll likely notice that the result of the following command doesn’t quite match the picture in the text.<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_surfaces-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="visualizing_surfaces-5-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x,y,z')
+implicit_plot3d(x^2 - y^2*z^2 + z^3 == 0, (x,-1,1), (y,-1,1), (z,-1,1))
+</script></div>
+<div class="para" id="visualizing_surfaces-5-2-3">The reason for this is <span class="process-math">\(f = x^2 - y^2z^2 + z^3\)</span> is not smooth. In particular, we can see the gradient vanishes along the <span class="process-math">\(y\)</span>-axis, which is where most of the funny business happens.<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_surfaces-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="visualizing_surfaces-5-2-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x,y,z')
+g(x,y,z) = (x^2 - y^2*z^2 + z^3).gradient()
+print(g(x,y,z))
+print(g(0,y,0))
+</script></div>
+<div class="para logical" id="visualizing_surfaces-5-2-5">
+<div class="para">We can fix some of this using parameterization. From the text, we have the parameterization</div>
+<div class="displaymath process-math" id="visualizing_surfaces-5-2-5-1">
+\begin{align*}
+x \amp= t(u^2 - t^2)\\
+y \amp= u\\
+z \amp= u^2 - t^2
+\end{align*}
+</div>
+<div class="para">The following sage code plots this parameterization using the <code class="code-inline tex2jax_ignore">parametric_plot3d</code> function. The <code class="code-inline tex2jax_ignore">colormap</code> feature here is unnecessary, but provides a nice visualization of the grandient on the surface: the gradient is normalized to the interval <span class="process-math">\([0,1]\text{,}\)</span> with red assigned to 0, and blue assigned to 1. The deepeer the shade, the closer to normalized gradient value is to the boundary of <span class="process-math">\([0,1]\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_surfaces-5-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="visualizing_surfaces-5-2-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x,y,z,t,u')
+f_x = t*(u^2 - t^2)
+f_y = u
+f_z = u^2 - t^2
+
+f = x^2 - y^2*z^2 + z^3
+
+grad_f = [diff(f,x), diff(f,y), diff(f,z)]
+grad_norm = sqrt(sum(g^2 for g in grad_f))
+grad_param = grad_norm.subs({x:f_x, y:f_y, z:f_z})
+
+parametric_plot3d([f_x,f_y,f_z],
+       (u,-1,1), (t,-1,1),
+       mesh=true,
+       color=(lambda t, u: grad_param.subs({SR.var('t'): t, SR.var('u'): u}).n(), colormaps.RdBu))
+</script></div>
+<div class="para" id="visualizing_surfaces-5-2-7">Note that the parameterized version makes it easy to see that the vanishing of the gradient is happening where the surface pinches together. This is an example of <dfn class="terminology">singular locus</dfn>—we will encounter singularities later.<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_surfaces-5-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.5.1"><a href="#visualizing_surfaces-5-2" title="Copy heading and permalink for Solution 1.5.1" aria-label="Copy heading and permalink for Solution 1.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.5"><a href="#visualizing_surfaces-5" title="Copy heading and permalink for Example 1.5" aria-label="Copy heading and permalink for Example 1.5">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.2: Surfaces"><a href="#visualizing_surfaces" title="Copy heading and permalink for Subsection 1.2: Surfaces" aria-label="Copy heading and permalink for Subsection 1.2: Surfaces">🔗</a></div></section><section class="subsection" id="visualizing_the_twisted_cubic"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Twisted Cubic</span>
+</h3>
+<div class="para" id="visualizing_the_twisted_cubic-2">In affine two-space, a single equation defines a curve, which is intuitively a one-dimensional object. In three-space, a single polynomial equation defines a surface, which is intuitively a two-dimensional object. To obtain a curve in three-space, we will need at least two equations. Geometrically, this means curves are obtained by intersecting surfaces.<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_the_twisted_cubic-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="visualizing_the_twisted_cubic-3">
+<div class="para">One particularly interesting curve is called the <em class="emphasis">twisted cubic</em>. This curve is obtained by intersecting a parabolic cylinder with a cubic cylinder:</div>
+<div class="displaymath process-math" id="visualizing_the_twisted_cubic-3-2">
+\begin{equation*}
+V(y - x^2, z - x^3)\text{.}
+\end{equation*}
+</div>
+<div class="para">Since this variety is defined to be the points <span class="process-math">\((x,y,z)\)</span> satisfying <span class="process-math">\(y - x^2 = z - x^3 = 0\text{,}\)</span> we can easily parameterize this curve using</div>
+<div class="displaymath process-math" id="visualizing_the_twisted_cubic-3-5">
+\begin{align*}
+x \amp= t\\
+y \amp= t^2\\
+z \amp= t^3
+\end{align*}
+</div>
+<div class="para">This allows us to plot the curve using the <code class="code-inline tex2jax_ignore">parametric_plot3d</code> function. We can visualize the construction of the twisted cubic as an intersection by plotting the two surfaces <span class="process-math">\(y = x^2\)</span> and <span class="process-math">\(z = x^3\)</span> along with the twisted cubic. Note that the <code class="code-inline tex2jax_ignore">+</code> operator in Sage is overloaded to allow “addition” of plots, which means simply display the summed plots in the same window.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_the_twisted_cubic-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="visualizing_the_twisted_cubic-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x,y,z,t')
+f_1, f_2 = y - x^2, z - x^3
+I = (x,-5,5)
+J = (y,-5,5)
+K = (z,-5,5)
+implicit_plot3d(f_1, I, J, K,color='red',opacity=0.5) +\
+implicit_plot3d(f_2,I,J,K,opacity=0.5) +\
+parametric_plot3d([t,t^2,t^3], (t,-5^(1/3),5^(1/3)),color='black',thickness=5)
+</script></div>
+<div class="para" id="visualizing_the_twisted_cubic-5">Note also the usage of <code class="code-inline tex2jax_ignore">\</code> and a carriage return to help minimize horizontal spread. It is important to ensure that no whitespace is added after the slash, as this will generate the error message “SyntaxError: unexpected character after line continuation character”, as below.<div class="autopermalink" data-description="Paragraph"><a href="#visualizing_the_twisted_cubic-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="visualizing_the_twisted_cubic-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('x,y')
+#This is fine.
+good = x +\
+y
+# The space following \ causes an error.
+bad = x +\ 
+y
+</script></div>
+<div class="autopermalink" data-description="Subsection 1.3: The Twisted Cubic"><a href="#visualizing_the_twisted_cubic" title="Copy heading and permalink for Subsection 1.3: The Twisted Cubic" aria-label="Copy heading and permalink for Subsection 1.3: The Twisted Cubic">🔗</a></div></section><div class="autopermalink" data-description="Section 1: Visualizing Varieties"><a href="#visualizing_varieties" title="Copy heading and permalink for Section 1: Visualizing Varieties" aria-label="Copy heading and permalink for Section 1: Visualizing Varieties">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="agexamples-3.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
