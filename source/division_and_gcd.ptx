@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xml:id="division_and_gcd" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Polynomials of a Single Variable</title>
+  <subsection xml:id="rings_and_fields">
+    <title>Constructing Rings and Fields</title>
+    <p>
+      Below are some basic examples of how to use some of the fields and rings available to you in Sage.
+      Most of our computations will happen over <m>\Q</m>, but Sage implements all the sets <m>\N</m>, <m>\Z</m>, <m>\Q</m>, <m>\R</m>, and <m>\C</m>, which are accessed by doubling the letter, as below.
+    </p>
+    <sage>
+      <input>
+	print(NN)
+	print(ZZ)
+	print(QQ)
+	print(RR)
+	print(CC)
+	print(QQbar)
+      </input>
+    </sage>
+    <p>
+      Both <c>RR</c> and <c>CC</c> using 53 bit precision, so working over either field is often quite messy.
+      Unless your polynomial has transcendental coefficients (<eg/> <m>\pi</m>, <m>e</m>, etc.), the algebraic closure of <m>\Q</m>, <c>QQbar</c>, will do everything you might want from <c>RR</c> or <c>CC</c> with fewer decimals.
+    </p>
+    <sage>
+      <input>
+	print(QQbar)
+	R.&lt;x> = RR[]
+	print(x^2 + 1)
+	print(factor(x^2 + 1))
+	R.&lt;x> = CC[]
+	print(x^2 + 1)
+	print(factor(x^2 + 1))
+	R.&lt;x> = QQbar[]
+	print(x^2+1)
+	print(factor(x^2 + 1))
+      </input>
+    </sage>
+    
+    <p>
+      If you know a some Field/Galois theory, Sage is also capable of constructing and working over number fields (<ie/> fields <m>K</m> with <m>\Q \subseteq K \subseteq \bar{\Q}</m>).
+      As a simple example, we can adjoin the sixth roots of unity<mdash/><ie/> the complex solutions to <m>x^6 - 1</m> to the field <m>Q</m> using the <c>NumberField</c> constructor.
+      Note that you need at least two different variables here.
+      We use <c>x</c> to specify the variable for the defining polynomial and <c>zeta</c> for the primitive sixth root of unity.
+    </p>
+    <sage>
+      <input>
+	R.&lt;x> = QQ[]
+	K.&lt;zeta> = NumberField(x^2 + x + 1)
+	S.&lt;X> = K[]
+	print(K.galois_group())
+	print(S)
+	print(zeta^6)
+      </input>
+    </sage>
+  </subsection>
+
+  <subsection>
+    <title>Polynomial Rings</title>
+    <p>
+      We can form polynomial rings using the construction <c>Name.&lt;var_1, ..., var_n> = Field[]</c>, where <c>Field</c> is some field from Sage and <c>Name</c> is a name of your choosing, <eg/> <m>R</m> (for ring).
+    </p>
+    <sage>
+      <input>
+	R0.&lt;x> = ZZ[]
+	print(R0)
+	R1.&lt;x> = QQ[]
+	print(R1)
+	R2.&lt;x> = RR[]
+	print(R2)
+	R3.&lt;x> = CC[]
+	print(R3)
+	R4.&lt;x,y,z> = QQ[]
+	print(R4)
+      </input>
+    </sage>
+    <p>
+      If for some reason you need to work over a number field, you'll need to either unbind the variable <c>x</c> or add in a third variable to get polynomials over the number field.
+      For example, we can see that adjoing any primitive sixth root of unity, the polynomial <m>x^6 - 1</m> splits completely:
+    </p>
+    <sage>
+      <input>
+	R.&lt;x> = QQ[]
+	K.&lt;zeta> = NumberField(x^2 + x + 1)
+	S.&lt;X> = K[]
+	print(factor(x^6 - 1)) #Factorization over Q
+	print(factor(X^6 - 1)) # Factorization over K
+      </input>
+    </sage>
+    <p>
+      Notice that we can ask for a factorization over <m>\bar{\Q}</m> with less labor, but the roots become more complicated.
+      This is one particular advantage to working over the number field instead of the algebraic closure.
+    </p>
+    <sage>
+      <input>
+	R.&lt;x> = QQbar[]
+	print(factor(x^6 - 1)) #Factorization over QQbar
+      </input>
+    </sage>
+    <example>
+      <p>
+      </p>
+    </example>
+  </subsection>
+
+  <subsection>
+    <title>The Division Algorithm</title>
+    <p>
+      For univariate polynomial rings, Sage implements the division algorithm through the function <c>quo_rem</c>.
+    </p>
+    <sage>
+      <input>
+	R.&lt;x> = QQ[]
+	f = x^3 + 2*x^2 + x + 1
+	g = 2*x + 1
+	q,r = f.quo_rem(g)
+	print(q)
+	print(r)
+	print(f == g*q + r)
+	f.quo_rem(g)
+      </input>
+    </sage>
+  </subsection>
+
+  <subsection>
+    <title>The Euclidean Algorithm</title>
+    <p>
+      Sage implements the Euclidean algorithm through the function <c>gcd</c>.
+      This function accepts a pair of input values or a list of input values.
+    </p>
+    <sage>
+      <input>
+	R.&lt;x> = QQ[]
+	f = x^4 - 1
+	g = x^6 - 1
+	h = x^2 + 2*x + 1
+	print(gcd(f,g))
+	print(gcd([f,g]))
+	print(gcd([f,g,h]))
+      </input>
+    </sage>
+  </subsection>
+</section>
