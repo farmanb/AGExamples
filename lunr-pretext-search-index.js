@@ -62,6 +62,24 @@ var ptx_lunr_docs = [
   "number": "1.5",
   "title": "",
   "body": "  Sketch the variety defined by .    If you're following along in the book, you'll likely notice that the result of the following command doesn't quite match the picture in the text.   The reason for this is is not smooth. In particular, we can see the gradient vanishes along the -axis, which is where most of the funny business happens.   We can fix some of this using parameterization. From the text, we have the parameterization The following sage code plots this parameterization using the parametric_plot3d function. The colormap feature here is unnecessary, but provides a nice visualization of the grandient on the surface: the gradient is normalized to the interval , with red assigned to 0, and blue assigned to 1. The deepeer the shade, the closer to normalized gradient value is to the boundary of    Note that the parameterized version makes it easy to see that the vanishing of the gradient is happening where the surface pinches together. This is an example of singular locus we will encounter singularities later.   "
+},
+{
+  "id": "division_and_gcd",
+  "level": "1",
+  "url": "division_and_gcd.html",
+  "type": "Section",
+  "number": "2",
+  "title": "Polynomials of a Single Variable",
+  "body": " Polynomials of a Single Variable   Constructing Rings and Fields  Below are some basic examples of how to use some of the fields and rings available to you in Sage. Most of our computations will happen over , but Sage implements all the sets , , , , and , which are accessed by doubling the letter, as below.   Both RR and CC using 53 bit precision, so working over either field is often quite messy. Unless your polynomial has transcendental coefficients (  , , etc.), the algebraic closure of , QQbar , will do everything you might want from RR or CC with fewer decimals.   If you know a some Field\/Galois theory, Sage is also capable of constructing and working over number fields ( fields with ). As a simple example, we can adjoin the sixth roots of unity the complex solutions to to the field using the NumberField constructor. Note that you need at least two different variables here. We use x to specify the variable for the defining polynomial and zeta for the primitive sixth root of unity.     Polynomial Rings  We can form polynomial rings using the construction Name.<var_1, ..., var_n> = Field[] , where Field is some field from Sage and Name is a name of your choosing,  (for ring).   If for some reason you need to work over a number field, you'll need to either unbind the variable x or add in a third variable to get polynomials over the number field. For example, we can see that adjoing any primitive sixth root of unity, the polynomial splits completely:   Notice that we can ask for a factorization over with less labor, but the roots become more complicated. This is one particular advantage to working over the number field instead of the algebraic closure.         The Division Algorithm  For univariate polynomial rings, Sage implements the division algorithm through the function quo_rem .     The Euclidean Algorithm  Sage implements the Euclidean algorithm through the function gcd . This function accepts a pair of input values or a list of input values.    "
+},
+{
+  "id": "division_and_gcd-3-8",
+  "level": "2",
+  "url": "division_and_gcd.html#division_and_gcd-3-8",
+  "type": "Example",
+  "number": "2.1",
+  "title": "",
+  "body": "   "
 }
 ]
 
