@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xml:id="monomial_orders_and_division" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Monomial Orders and Division</title>
+  <introduction>
+    <p>
+      These are some examples of various monomial orderings with Sage, and an implementation of the division algorithm for multivariate polynomial rings (p. 65 of the text).
+    </p>
+  </introduction>
+
+  <subsection xml:id="monomial_orders">
+    <title>Monomial Orders</title>
+    <p>
+      The point of monomial orders is to export computations from univariate polynomial rings to analogous computations for multivariate polynomial rings.
+      In SageMath, monomial orders are called <url href="https://doc.sagemath.org/html/en/reference/polynomial_rings/sage/rings/polynomial/term_order.html">term orders</url>, and several are implemented in the main libraries.
+      For our purposes, we will primarily be concerned with SageMath's <c>lex</c>, <c>deglex</c> (graded lex), and <c>degrevlex</c> (graded reverse lex order).
+    </p>
+    <remark>
+      <p>
+	The default monomoial order in SageMath is <c>degrevlex</c>.
+      </p>
+    </remark>
+
+    <example>
+      <statement>
+	<p>
+	  The monomial ordering is passed as a named argument to the <c>PolynomialRing</c> constructor and is bound to the polynoial ring.
+	  Note that <c>PolynomialRing</c> is immutable once constructed, so you will have to simply re-construct a polynomial ring if you wish to change the term order.
+	</p>
+	<sage>
+	  <input>
+	    # Lex order on the rationals with three variables.
+	    R.&lt;x,y,z> = PolynomialRing(QQ, order='lex')
+	    print(R)
+	    print(R.term_order())
+
+	    f = -5*x^3 + 7*x^2*z^2 + 4*x*y^2*z + 4*z^2
+	    # Sage automatically prints in term order.
+	    print(f)
+	    # Leading coefficient
+	    print(f.lc())
+	    # Leading monomial
+	    print(f.lm())
+	    # Leading term
+	    print(f.lt())
+	    # Multideg
+	    print(f.lm().degrees()) # Method 1
+	    print(f.lt().degrees()) # Method 2
+	  </input>
+	</sage>
+	<sage>
+	  <input>
+	    # Grlex order on the rationals with three variables.
+	    R.&lt;x,y,z> = PolynomialRing(QQ, order='lex')
+	    print(R)
+	    print(R.term_order())
+
+	    f = -5*x^3 + 7*x^2*z^2 + 4*x*y^2*z + 4*z^2
+	    # Sage automatically prints in term order.
+	    print(f)
+	    # Leading coefficient
+	    print(f.lc())
+	    # Leading monomial
+	    print(f.lm())
+	    # Leading term
+	    print(f.lt())
+	    # Multideg
+	    print(f.lm().degrees()) # Method 1
+	    print(f.lt().degrees()) # Method 2
+	  </input>
+	</sage>
+
+	<sage>
+	  <input>
+	    # Grevlex order on the rationals with three variables.
+	    R.&lt;x,y,z> = PolynomialRing(QQ)
+	    print(R)
+	    print(R.term_order())
+	    
+	    f = -5*x^3 + 7*x^2*z^2 + 4*x*y^2*z + 4*z^2
+	    # Sage automatically prints in term order.
+	    print(f)
+	    # Leading coefficient
+	    print(f.lc())
+	    # Leading monomial
+	    print(f.lm())
+	    # Leading term
+	    print(f.lt())
+	    # Multideg
+	    print(f.lm().degrees()) # Method 1
+	    print(f.lt().degrees()) # Method 2
+	  </input>
+	</sage>
+      </statement>
+    </example>
+  </subsection>
+
+  <subsection xml:id="multivariate_division_algorithm">
+    <title>Multivariate Division Algorithm</title>
+    <p>
+      Below is an implementation of the division algorithm.
+      <alert>In order to use this function in other cells on the page, you need to click the <c>Evaluate (Sage)</c> button.</alert>
+    </p>
+    <sage>
+      <input>
+#Theorem 3
+def npoly_div(f,F) :
+    R = f.parent()
+
+    s = len(F)
+    qs = [R(0) for _ in F]
+    r = R(0)
+    p  = f
+
+    while p != 0 :
+        i = 0
+        division_occurred = False
+        print("i = %d:\r\n\r\tqs = [%s]\r\n\r\tr = %s" % (i,", ".join([str(q) for q in qs]),str(r)))
+        while (i &lt; s) and not division_occurred:
+            if p.lt() % F[i].lt() == 0:
+                qs[i] = qs[i] + (p.lt()//F[i].lt())
+                p = p - (p.lt()//F[i].lt())*F[i]
+                division_occurred = True
+                print("\r\tp = %s"%str(p))
+            else:
+                i += 1
+        if not division_occurred:
+            r = r + p.lt()
+            p = p - p.lt()
+    return qs,r
+      </input>
+    </sage>
+    <example>
+      <statement>
+	<p>
+	  Using lex order, divide the polynomial <m>f = xy^2 + 1</m> by <m>f_1 = x*y + 1</m> and <m>f_2 = y + 1</m>.
+	</p>
+	<sage>
+	  <input>
+	    #Example 1
+	    R.&lt;x,y,z> = PolynomialRing(QQ,order="lex")
+	    f = x*y^2 + 1
+	    F = [x*y + 1, y + 1]
+	    qs, r = npoly_div(f,F)
+	    print("Result:\r\n\r\tqs = [%s]\r\n\r\tr = %s" % (", ".join([str(q) for q in qs]),str(r)))
+
+	    #Check that (\sum_{i=1}^s q_i*f_i) + r is actually f.
+	    print(f == sum(q*g for q, g in zip(qs, F)) + r)
+	  </input>
+	</sage>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+	<p>
+	  Using lex order, divide the polynomial <m>f = x^2 y + xy^2 + y^2</m> by the polynomials <m>f_1 = xy - 1</m> and <m>f_2 = y^2 - 1</m>.
+	</p>
+	<sage>
+	  <input>
+	    #Example 2
+	    R.&lt;x,y,z> = PolynomialRing(QQ,order="lex")
+	    f = x^2*y + x*y^2 + y^2
+	    F = [x*y - 1, y^2 - 1]
+	    qs, r = npoly_div(f,F)
+	    print("Result:\r\n\r\tqs = [%s]\r\n\r\tr = %s" % (", ".join([str(q) for q in qs]),str(r)))
+
+	    #Check that (\sum_{i=1}^s q_i*f_i) + r is actually f.
+	    print(f == sum(q*g for q, g in zip(qs, F)) + r)
+	  </input>
+	</sage>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+	<p>
+	  Using lex order, divide the polynomial <m>f = x^2 y + xy^2 + y^2</m> by the polynomials <m>f_1 = y^2 - 1</m> and <m>f_2 = xy - 1</m>.
+	  Note that the order matters here!
+	</p>
+	<sage>
+	  <input>
+	    R.&lt;x,y,z> = PolynomialRing(QQ,order="lex")
+	    f = x^2*y + x*y^2 + y^2
+	    F = [y^2 - 1,x*y - 1]
+	    qs, r = npoly_div(f,F)
+	    print("Result:\r\n\r\tqs = [%s]\r\n\r\tr = %s" % (", ".join([str(q) for q in qs]),str(r)))
+
+	    #Check that (\sum_{i=1}^s q_i*f_i) + r is actually f.
+	    print(f == sum(q*g for q, g in zip(qs, F)) + r)
+	  </input>
+	</sage>
+      </statement>
+    </example>
+  </subsection>
+</section>

@@ -22,6 +22,7 @@
     <xi:include href="./frontmatter.ptx" />
     <xi:include href="visualizing_varieties.ptx"/>
     <xi:include href="division_and_gcd.ptx"/>
+    <xi:include href="monomial_orders_and_division.ptx"/>
   </article>
 
 </pretext>
