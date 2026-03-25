@@ -80,6 +80,60 @@ var ptx_lunr_docs = [
   "number": "2.1",
   "title": "",
   "body": "   "
+},
+{
+  "id": "monomial_orders_and_division",
+  "level": "1",
+  "url": "monomial_orders_and_division.html",
+  "type": "Section",
+  "number": "3",
+  "title": "Monomial Orders and Division",
+  "body": " Monomial Orders and Division   These are some examples of various monomial orderings with Sage, and an implementation of the division algorithm for multivariate polynomial rings (p. 65 of the text).    Monomial Orders  The point of monomial orders is to export computations from univariate polynomial rings to analogous computations for multivariate polynomial rings. In SageMath, monomial orders are called term orders , and several are implemented in the main libraries. For our purposes, we will primarily be concerned with SageMath's lex , deglex (graded lex), and degrevlex (graded reverse lex order).   The default monomoial order in SageMath is degrevlex .     The monomial ordering is passed as a named argument to the PolynomialRing constructor and is bound to the polynoial ring. Note that PolynomialRing is immutable once constructed, so you will have to simply re-construct a polynomial ring if you wish to change the term order.         Multivariate Division Algorithm  Below is an implementation of the division algorithm. In order to use this function in other cells on the page, you need to click the Evaluate (Sage) button.      Using lex order, divide the polynomial by and .       Using lex order, divide the polynomial by the polynomials and .       Using lex order, divide the polynomial by the polynomials and . Note that the order matters here!      "
+},
+{
+  "id": "monomial_orders-3",
+  "level": "2",
+  "url": "monomial_orders_and_division.html#monomial_orders-3",
+  "type": "Remark",
+  "number": "3.1",
+  "title": "",
+  "body": " The default monomoial order in SageMath is degrevlex .  "
+},
+{
+  "id": "monomial_orders-4",
+  "level": "2",
+  "url": "monomial_orders_and_division.html#monomial_orders-4",
+  "type": "Example",
+  "number": "3.2",
+  "title": "",
+  "body": "  The monomial ordering is passed as a named argument to the PolynomialRing constructor and is bound to the polynoial ring. Note that PolynomialRing is immutable once constructed, so you will have to simply re-construct a polynomial ring if you wish to change the term order.      "
+},
+{
+  "id": "multivariate_division_algorithm-4",
+  "level": "2",
+  "url": "monomial_orders_and_division.html#multivariate_division_algorithm-4",
+  "type": "Example",
+  "number": "3.3",
+  "title": "",
+  "body": "  Using lex order, divide the polynomial by and .    "
+},
+{
+  "id": "multivariate_division_algorithm-5",
+  "level": "2",
+  "url": "monomial_orders_and_division.html#multivariate_division_algorithm-5",
+  "type": "Example",
+  "number": "3.4",
+  "title": "",
+  "body": "  Using lex order, divide the polynomial by the polynomials and .    "
+},
+{
+  "id": "multivariate_division_algorithm-6",
+  "level": "2",
+  "url": "monomial_orders_and_division.html#multivariate_division_algorithm-6",
+  "type": "Example",
+  "number": "3.5",
+  "title": "",
+  "body": "  Using lex order, divide the polynomial by the polynomials and . Note that the order matters here!    "
 }
 ]
 

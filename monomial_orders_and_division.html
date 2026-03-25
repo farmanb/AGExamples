@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Example</title>
+<title>Monomial Orders and Division</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -164,7 +164,7 @@ sagecell.makeSagecell({
 <textarea class="embed-code-textbox" id="embed-code-textbox" readonly aria-label="textbox"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button class="copy-embed-button button" id="copy-embed-button" title="Copy embed code"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
 </div>
 </div>
-<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><span class="previous-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></span><span class="up-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></span><a class="next-button button" href="agexamples-3.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="division_and_gcd.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="agexamples.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -196,22 +196,159 @@ sagecell.makeSagecell({
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="division_and_gcd.html#division_and_gcd-5" class="internal"><span class="codenumber">2.4</span> <span class="title">The Euclidean Algorithm</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
+<li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="monomial_orders_and_division.html" class="internal"><span class="codenumber">3</span> <span class="title">Monomial Orders and Division</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list active">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="monomial_orders_and_division.html#monomial_orders" class="internal"><span class="codenumber">3.1</span> <span class="title">Monomial Orders</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="monomial_orders_and_division.html#multivariate_division_algorithm" class="internal"><span class="codenumber">3.2</span> <span class="title">Multivariate Division Algorithm</span></a></div></li>
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="article" id="agexamples"><nav class="summary-links"><ul>
-<li><a href="agexamples-3.html" class="internal"><span class="title">Front Matter</span></a></li>
-<li><a href="visualizing_varieties.html" class="internal"><span class="codenumber">1</span> <span class="title">Visualizing Varieties</span></a></li>
-<li><a href="division_and_gcd.html" class="internal"><span class="codenumber">2</span> <span class="title">Polynomials of a Single Variable</span></a></li>
-<li><a href="monomial_orders_and_division.html" class="internal"><span class="codenumber">3</span> <span class="title">Monomial Orders and Division</span></a></li>
-</ul></nav><div class="autopermalink" data-description="Article: Example"><a href="#agexamples" title="Copy heading and permalink for Article: Example" aria-label="Copy heading and permalink for Article: Example">🔗</a></div></section></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="monomial_orders_and_division"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Monomial Orders and Division</span>
+</h2>
+<section class="introduction" id="monomial_orders_and_division-2"><div class="para" id="monomial_orders_and_division-2-1">These are some examples of various monomial orderings with Sage, and an implementation of the division algorithm for multivariate polynomial rings (p. 65 of the text).<div class="autopermalink" data-description="Paragraph"><a href="#monomial_orders_and_division-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="monomial_orders"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Monomial Orders</span>
+</h3>
+<div class="para" id="monomial_orders-2">The point of monomial orders is to export computations from univariate polynomial rings to analogous computations for multivariate polynomial rings. In SageMath, monomial orders are called <a class="external" href="https://doc.sagemath.org/html/en/reference/polynomial_rings/sage/rings/polynomial/term_order.html" target="_blank">term orders</a>, and several are implemented in the main libraries. For our purposes, we will primarily be concerned with SageMath’s <code class="code-inline tex2jax_ignore">lex</code>, <code class="code-inline tex2jax_ignore">deglex</code> (graded lex), and <code class="code-inline tex2jax_ignore">degrevlex</code> (graded reverse lex order).<div class="autopermalink" data-description="Paragraph"><a href="#monomial_orders-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="remark remark-like" id="monomial_orders-3"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="monomial_orders-3-1">The default monomoial order in SageMath is <code class="code-inline tex2jax_ignore">degrevlex</code>.<div class="autopermalink" data-description="Paragraph"><a href="#monomial_orders-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 3.1"><a href="#monomial_orders-3" title="Copy heading and permalink for Remark 3.1" aria-label="Copy heading and permalink for Remark 3.1">🔗</a></div></article><article class="example example-like" id="monomial_orders-4"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="monomial_orders-4-1-1">The monomial ordering is passed as a named argument to the <code class="code-inline tex2jax_ignore">PolynomialRing</code> constructor and is bound to the polynoial ring. Note that <code class="code-inline tex2jax_ignore">PolynomialRing</code> is immutable once constructed, so you will have to simply re-construct a polynomial ring if you wish to change the term order.<div class="autopermalink" data-description="Paragraph"><a href="#monomial_orders-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div id="monomial_orders-4-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Lex order on the rationals with three variables.
+R.<x,y,z> = PolynomialRing(QQ, order='lex')
+print(R)
+print(R.term_order())
+
+f = -5*x^3 + 7*x^2*z^2 + 4*x*y^2*z + 4*z^2
+# Sage automatically prints in term order.
+print(f)
+# Leading coefficient
+print(f.lc())
+# Leading monomial
+print(f.lm())
+# Leading term
+print(f.lt())
+# Multideg
+print(f.lm().degrees()) # Method 1
+print(f.lt().degrees()) # Method 2
+</script></div> <div id="monomial_orders-4-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Grlex order on the rationals with three variables.
+R.<x,y,z> = PolynomialRing(QQ, order='lex')
+print(R)
+print(R.term_order())
+
+f = -5*x^3 + 7*x^2*z^2 + 4*x*y^2*z + 4*z^2
+# Sage automatically prints in term order.
+print(f)
+# Leading coefficient
+print(f.lc())
+# Leading monomial
+print(f.lm())
+# Leading term
+print(f.lt())
+# Multideg
+print(f.lm().degrees()) # Method 1
+print(f.lt().degrees()) # Method 2
+</script></div> <div id="monomial_orders-4-1-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Grevlex order on the rationals with three variables.
+R.<x,y,z> = PolynomialRing(QQ)
+print(R)
+print(R.term_order())
+
+f = -5*x^3 + 7*x^2*z^2 + 4*x*y^2*z + 4*z^2
+# Sage automatically prints in term order.
+print(f)
+# Leading coefficient
+print(f.lc())
+# Leading monomial
+print(f.lm())
+# Leading term
+print(f.lt())
+# Multideg
+print(f.lm().degrees()) # Method 1
+print(f.lt().degrees()) # Method 2
+</script></div>
+<div class="autopermalink" data-description="Example 3.2"><a href="#monomial_orders-4" title="Copy heading and permalink for Example 3.2" aria-label="Copy heading and permalink for Example 3.2">🔗</a></div></article><div class="autopermalink" data-description="Subsection 3.1: Monomial Orders"><a href="#monomial_orders" title="Copy heading and permalink for Subsection 3.1: Monomial Orders" aria-label="Copy heading and permalink for Subsection 3.1: Monomial Orders">🔗</a></div></section><section class="subsection" id="multivariate_division_algorithm"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Multivariate Division Algorithm</span>
+</h3>
+<div class="para" id="multivariate_division_algorithm-2">Below is an implementation of the division algorithm. <em class="alert">In order to use this function in other cells on the page, you need to click the <code class="code-inline tex2jax_ignore">Evaluate (Sage)</code> button.</em><div class="autopermalink" data-description="Paragraph"><a href="#multivariate_division_algorithm-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="multivariate_division_algorithm-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Theorem 3
+def npoly_div(f,F) :
+    R = f.parent()
+
+    s = len(F)
+    qs = [R(0) for _ in F]
+    r = R(0)
+    p  = f
+
+    while p != 0 :
+        i = 0
+        division_occurred = False
+        print("i = %d:\r\n\r\tqs = [%s]\r\n\r\tr = %s" % (i,", ".join([str(q) for q in qs]),str(r)))
+        while (i < s) and not division_occurred:
+            if p.lt() % F[i].lt() == 0:
+                qs[i] = qs[i] + (p.lt()//F[i].lt())
+                p = p - (p.lt()//F[i].lt())*F[i]
+                division_occurred = True
+                print("\r\tp = %s"%str(p))
+            else:
+                i += 1
+        if not division_occurred:
+            r = r + p.lt()
+            p = p - p.lt()
+    return qs,r
+</script></div>
+<article class="example example-like" id="multivariate_division_algorithm-4"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="multivariate_division_algorithm-4-1-1">Using lex order, divide the polynomial <span class="process-math">\(f = xy^2 + 1\)</span> by <span class="process-math">\(f_1 = x*y + 1\)</span> and <span class="process-math">\(f_2 = y + 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#multivariate_division_algorithm-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div id="multivariate_division_algorithm-4-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Example 1
+R.<x,y,z> = PolynomialRing(QQ,order="lex")
+f = x*y^2 + 1
+F = [x*y + 1, y + 1]
+qs, r = npoly_div(f,F)
+print("Result:\r\n\r\tqs = [%s]\r\n\r\tr = %s" % (", ".join([str(q) for q in qs]),str(r)))
+
+#Check that (\sum_{i=1}^s q_i*f_i) + r is actually f.
+print(f == sum(q*g for q, g in zip(qs, F)) + r)
+</script></div>
+<div class="autopermalink" data-description="Example 3.3"><a href="#multivariate_division_algorithm-4" title="Copy heading and permalink for Example 3.3" aria-label="Copy heading and permalink for Example 3.3">🔗</a></div></article><article class="example example-like" id="multivariate_division_algorithm-5"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="multivariate_division_algorithm-5-1-1">Using lex order, divide the polynomial <span class="process-math">\(f = x^2 y + xy^2 + y^2\)</span> by the polynomials <span class="process-math">\(f_1 = xy - 1\)</span> and <span class="process-math">\(f_2 = y^2 - 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#multivariate_division_algorithm-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div id="multivariate_division_algorithm-5-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Example 2
+R.<x,y,z> = PolynomialRing(QQ,order="lex")
+f = x^2*y + x*y^2 + y^2
+F = [x*y - 1, y^2 - 1]
+qs, r = npoly_div(f,F)
+print("Result:\r\n\r\tqs = [%s]\r\n\r\tr = %s" % (", ".join([str(q) for q in qs]),str(r)))
+
+#Check that (\sum_{i=1}^s q_i*f_i) + r is actually f.
+print(f == sum(q*g for q, g in zip(qs, F)) + r)
+</script></div>
+<div class="autopermalink" data-description="Example 3.4"><a href="#multivariate_division_algorithm-5" title="Copy heading and permalink for Example 3.4" aria-label="Copy heading and permalink for Example 3.4">🔗</a></div></article><article class="example example-like" id="multivariate_division_algorithm-6"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="multivariate_division_algorithm-6-1-1">Using lex order, divide the polynomial <span class="process-math">\(f = x^2 y + xy^2 + y^2\)</span> by the polynomials <span class="process-math">\(f_1 = y^2 - 1\)</span> and <span class="process-math">\(f_2 = xy - 1\text{.}\)</span> Note that the order matters here!<div class="autopermalink" data-description="Paragraph"><a href="#multivariate_division_algorithm-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div id="multivariate_division_algorithm-6-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<x,y,z> = PolynomialRing(QQ,order="lex")
+f = x^2*y + x*y^2 + y^2
+F = [y^2 - 1,x*y - 1]
+qs, r = npoly_div(f,F)
+print("Result:\r\n\r\tqs = [%s]\r\n\r\tr = %s" % (", ".join([str(q) for q in qs]),str(r)))
+
+#Check that (\sum_{i=1}^s q_i*f_i) + r is actually f.
+print(f == sum(q*g for q, g in zip(qs, F)) + r)
+</script></div>
+<div class="autopermalink" data-description="Example 3.5"><a href="#multivariate_division_algorithm-6" title="Copy heading and permalink for Example 3.5" aria-label="Copy heading and permalink for Example 3.5">🔗</a></div></article><div class="autopermalink" data-description="Subsection 3.2: Multivariate Division Algorithm"><a href="#multivariate_division_algorithm" title="Copy heading and permalink for Subsection 3.2: Multivariate Division Algorithm" aria-label="Copy heading and permalink for Subsection 3.2: Multivariate Division Algorithm">🔗</a></div></section><div class="autopermalink" data-description="Section 3: Monomial Orders and Division"><a href="#monomial_orders_and_division" title="Copy heading and permalink for Section 3: Monomial Orders and Division" aria-label="Copy heading and permalink for Section 3: Monomial Orders and Division">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<span class="previous-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></span><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="agexamples-3.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="division_and_gcd.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
