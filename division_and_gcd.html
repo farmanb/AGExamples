@@ -215,21 +215,21 @@ print(QQbar)
 <div class="para" id="rings_and_fields-4">Both <code class="code-inline tex2jax_ignore">RR</code> and <code class="code-inline tex2jax_ignore">CC</code> using 53 bit precision, so working over either field is often quite messy. Unless your polynomial has transcendental coefficients (e.g. <span class="process-math">\(\pi\text{,}\)</span> <span class="process-math">\(e\text{,}\)</span> etc.), the algebraic closure of <span class="process-math">\(\Q\text{,}\)</span> <code class="code-inline tex2jax_ignore">QQbar</code>, will do everything you might want from <code class="code-inline tex2jax_ignore">RR</code> or <code class="code-inline tex2jax_ignore">CC</code> with fewer decimals.<div class="autopermalink" data-description="Paragraph"><a href="#rings_and_fields-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="rings_and_fields-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">print(QQbar)
-R.<x> = RR[]
+R.<x> = PolynomialRing(RR)
 print(x^2 + 1)
 print(factor(x^2 + 1))
-R.<x> = CC[]
+R.<x> = PolynomialRing(CC)
 print(x^2 + 1)
 print(factor(x^2 + 1))
-R.<x> = QQbar[]
+R.<x> = PolynomialRing(QQbar)
 print(x^2+1)
 print(factor(x^2 + 1))
 </script></div>
-<div class="para" id="rings_and_fields-6">If you know a some Field/Galois theory, Sage is also capable of constructing and working over number fields (i.e. fields <span class="process-math">\(K\)</span> with <span class="process-math">\(\Q \subseteq K \subseteq \bar{\Q}\)</span>). As a simple example, we can adjoin the sixth roots of unity—i.e. the complex solutions to <span class="process-math">\(x^6 - 1\)</span> to the field <span class="process-math">\(Q\)</span> using the <code class="code-inline tex2jax_ignore">NumberField</code> constructor. Note that you need at least two different variables here. We use <code class="code-inline tex2jax_ignore">x</code> to specify the variable for the defining polynomial and <code class="code-inline tex2jax_ignore">zeta</code> for the primitive sixth root of unity.<div class="autopermalink" data-description="Paragraph"><a href="#rings_and_fields-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="rings_and_fields-6">If you know a some Field/Galois theory, Sage is also capable of constructing and working over number fields (i.e. fields <span class="process-math">\(K\)</span> with <span class="process-math">\(\Q \subseteq K \subseteq \bar{\Q}\)</span>). As a simple example, we can adjoin the sixth roots of unity—i.e. the complex solutions to <span class="process-math">\(x^6 - 1\)</span>—to the field <span class="process-math">\(\Q\)</span> using the <code class="code-inline tex2jax_ignore">NumberField</code> constructor. Note that you need at least two different variables here. We use <code class="code-inline tex2jax_ignore">x</code> to specify the variable for the defining polynomial and <code class="code-inline tex2jax_ignore">zeta</code> for the primitive sixth root of unity.<div class="autopermalink" data-description="Paragraph"><a href="#rings_and_fields-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="rings_and_fields-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<x> = QQ[]
+<div id="rings_and_fields-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<x> = PolynomialRing(QQ)
 K.<zeta> = NumberField(x^2 + x + 1)
-S.<X> = K[]
+S.<X> = PolynomialRing(K)
 print(K.galois_group())
 print(S)
 print(zeta^6)
@@ -237,30 +237,30 @@ print(zeta^6)
 <div class="autopermalink" data-description="Subsection 2.1: Constructing Rings and Fields"><a href="#rings_and_fields" title="Copy heading and permalink for Subsection 2.1: Constructing Rings and Fields" aria-label="Copy heading and permalink for Subsection 2.1: Constructing Rings and Fields">🔗</a></div></section><section class="subsection" id="division_and_gcd-3"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Polynomial Rings</span>
 </h3>
-<div class="para" id="division_and_gcd-3-2">We can form polynomial rings using the construction <code class="code-inline tex2jax_ignore">Name.&lt;var_1, ..., var_n&gt; = Field[]</code>, where <code class="code-inline tex2jax_ignore">Field</code> is some field from Sage and <code class="code-inline tex2jax_ignore">Name</code> is a name of your choosing, e.g. <span class="process-math">\(R\)</span> (for ring).<div class="autopermalink" data-description="Paragraph"><a href="#division_and_gcd-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="division_and_gcd-3-2">We can form polynomial rings using the construction <code class="code-inline tex2jax_ignore">Name.&lt;var_1, ..., var_n&gt; = PolynomialRing(Ring)</code>, where <code class="code-inline tex2jax_ignore">Ring</code> is some ring object from Sage (Note: Remember that fields are also rings) and <code class="code-inline tex2jax_ignore">Name</code> is a name of your choosing for the polynomial ring, e.g. <span class="process-math">\(R\)</span> (for ring).<div class="autopermalink" data-description="Paragraph"><a href="#division_and_gcd-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="division_and_gcd-3-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R0.<x> = ZZ[]
+<div id="division_and_gcd-3-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R0.<x> = PolynomialRing(ZZ)
 print(R0)
-R1.<x> = QQ[]
+R1.<x> = PolynomialRing(QQ)
 print(R1)
-R2.<x> = RR[]
+R2.<x> = PolynomialRing(RR)
 print(R2)
-R3.<x> = CC[]
+R3.<x> = PolynomialRing(CC)
 print(R3)
-R4.<x,y,z> = QQ[]
+R4.<x,y,z> = PolynomialRing(QQ)
 print(R4)
 </script></div>
 <div class="para" id="division_and_gcd-3-4">If for some reason you need to work over a number field, you’ll need to either unbind the variable <code class="code-inline tex2jax_ignore">x</code> or add in a third variable to get polynomials over the number field. For example, we can see that adjoing any primitive sixth root of unity, the polynomial <span class="process-math">\(x^6 - 1\)</span> splits completely:<div class="autopermalink" data-description="Paragraph"><a href="#division_and_gcd-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="division_and_gcd-3-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<x> = QQ[]
+<div id="division_and_gcd-3-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<x> = PolynomialRing(QQ)
 K.<zeta> = NumberField(x^2 + x + 1)
-S.<X> = K[]
+S.<X> = PolynomialRing(K)
 print(factor(x^6 - 1)) #Factorization over Q
 print(factor(X^6 - 1)) # Factorization over K
 </script></div>
 <div class="para" id="division_and_gcd-3-6">Notice that we can ask for a factorization over <span class="process-math">\(\bar{\Q}\)</span> with less labor, but the roots become more complicated. This is one particular advantage to working over the number field instead of the algebraic closure.<div class="autopermalink" data-description="Paragraph"><a href="#division_and_gcd-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="division_and_gcd-3-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<x> = QQbar[]
+<div id="division_and_gcd-3-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<x> = PolynomialRing(QQbar)
 print(factor(x^6 - 1)) #Factorization over QQbar
 </script></div>
 <article class="example example-like" id="division_and_gcd-3-8"><h4 class="heading">
@@ -272,7 +272,7 @@ print(factor(x^6 - 1)) #Factorization over QQbar
 </h3>
 <div class="para" id="division_and_gcd-4-2">For univariate polynomial rings, Sage implements the division algorithm through the function <code class="code-inline tex2jax_ignore">quo_rem</code>.<div class="autopermalink" data-description="Paragraph"><a href="#division_and_gcd-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="division_and_gcd-4-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<x> = QQ[]
+<div id="division_and_gcd-4-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<x> = PolynomialRing(QQ)
 f = x^3 + 2*x^2 + x + 1
 g = 2*x + 1
 q,r = f.quo_rem(g)
@@ -286,7 +286,7 @@ f.quo_rem(g)
 </h3>
 <div class="para" id="division_and_gcd-5-2">Sage implements the Euclidean algorithm through the function <code class="code-inline tex2jax_ignore">gcd</code>. This function accepts a pair of input values or a list of input values.<div class="autopermalink" data-description="Paragraph"><a href="#division_and_gcd-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="division_and_gcd-5-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<x> = QQ[]
+<div id="division_and_gcd-5-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R.<x> = PolynomialRing(QQ)
 f = x^4 - 1
 g = x^6 - 1
 h = x^2 + 2*x + 1
