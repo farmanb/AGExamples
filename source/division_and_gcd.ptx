@@ -24,13 +24,13 @@
     <sage>
       <input>
 	print(QQbar)
-	R.&lt;x> = RR[]
+	R.&lt;x> = PolynomialRing(RR)
 	print(x^2 + 1)
 	print(factor(x^2 + 1))
-	R.&lt;x> = CC[]
+	R.&lt;x> = PolynomialRing(CC)
 	print(x^2 + 1)
 	print(factor(x^2 + 1))
-	R.&lt;x> = QQbar[]
+	R.&lt;x> = PolynomialRing(QQbar)
 	print(x^2+1)
 	print(factor(x^2 + 1))
       </input>
@@ -38,15 +38,15 @@
     
     <p>
       If you know a some Field/Galois theory, Sage is also capable of constructing and working over number fields (<ie/> fields <m>K</m> with <m>\Q \subseteq K \subseteq \bar{\Q}</m>).
-      As a simple example, we can adjoin the sixth roots of unity<mdash/><ie/> the complex solutions to <m>x^6 - 1</m> to the field <m>Q</m> using the <c>NumberField</c> constructor.
+      As a simple example, we can adjoin the sixth roots of unity<mdash/><ie/> the complex solutions to <m>x^6 - 1</m><mdash/>to the field <m>\Q</m> using the <c>NumberField</c> constructor.
       Note that you need at least two different variables here.
       We use <c>x</c> to specify the variable for the defining polynomial and <c>zeta</c> for the primitive sixth root of unity.
     </p>
     <sage>
       <input>
-	R.&lt;x> = QQ[]
+	R.&lt;x> = PolynomialRing(QQ)
 	K.&lt;zeta> = NumberField(x^2 + x + 1)
-	S.&lt;X> = K[]
+	S.&lt;X> = PolynomialRing(K)
 	print(K.galois_group())
 	print(S)
 	print(zeta^6)
@@ -57,19 +57,19 @@
   <subsection>
     <title>Polynomial Rings</title>
     <p>
-      We can form polynomial rings using the construction <c>Name.&lt;var_1, ..., var_n> = Field[]</c>, where <c>Field</c> is some field from Sage and <c>Name</c> is a name of your choosing, <eg/> <m>R</m> (for ring).
+      We can form polynomial rings using the construction <c>Name.&lt;var_1, ..., var_n> = PolynomialRing(Ring)</c>, where <c>Ring</c> is some ring object from Sage (Note: Remember that fields are also rings) and <c>Name</c> is a name of your choosing for the polynomial ring, <eg/> <m>R</m> (for ring).
     </p>
     <sage>
       <input>
-	R0.&lt;x> = ZZ[]
+	R0.&lt;x> = PolynomialRing(ZZ)
 	print(R0)
-	R1.&lt;x> = QQ[]
+	R1.&lt;x> = PolynomialRing(QQ)
 	print(R1)
-	R2.&lt;x> = RR[]
+	R2.&lt;x> = PolynomialRing(RR)
 	print(R2)
-	R3.&lt;x> = CC[]
+	R3.&lt;x> = PolynomialRing(CC)
 	print(R3)
-	R4.&lt;x,y,z> = QQ[]
+	R4.&lt;x,y,z> = PolynomialRing(QQ)
 	print(R4)
       </input>
     </sage>
@@ -79,9 +79,9 @@
     </p>
     <sage>
       <input>
-	R.&lt;x> = QQ[]
+	R.&lt;x> = PolynomialRing(QQ)
 	K.&lt;zeta> = NumberField(x^2 + x + 1)
-	S.&lt;X> = K[]
+	S.&lt;X> = PolynomialRing(K)
 	print(factor(x^6 - 1)) #Factorization over Q
 	print(factor(X^6 - 1)) # Factorization over K
       </input>
@@ -92,7 +92,7 @@
     </p>
     <sage>
       <input>
-	R.&lt;x> = QQbar[]
+	R.&lt;x> = PolynomialRing(QQbar)
 	print(factor(x^6 - 1)) #Factorization over QQbar
       </input>
     </sage>
@@ -109,7 +109,7 @@
     </p>
     <sage>
       <input>
-	R.&lt;x> = QQ[]
+	R.&lt;x> = PolynomialRing(QQ)
 	f = x^3 + 2*x^2 + x + 1
 	g = 2*x + 1
 	q,r = f.quo_rem(g)
@@ -129,7 +129,7 @@
     </p>
     <sage>
       <input>
-	R.&lt;x> = QQ[]
+	R.&lt;x> = PolynomialRing(QQ)
 	f = x^4 - 1
 	g = x^6 - 1
 	h = x^2 + 2*x + 1
