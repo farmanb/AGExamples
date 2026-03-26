@@ -1,20 +1,39 @@
-name: CI
-on: [push]
+name: Lighthouse CI – Accessibility
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
 jobs:
-  lhci:
-    name: Lighthouse
+  lighthouse:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          node-version: 16.x
-      - name: npm install, build
-        run: |
-          npm install
-          npm run build
-      - name: run Lighthouse CI
-        run: |
-          npm install -g @lhci/cli@0.15.x
-          lhci autorun
+          python-version: '3.11'
+
+      - name: Install pretext-cli
+        run: pip install pretext
+
+      - name: Build PreTeXt project (web target)
+        run: pretext build web
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli
+
+      - name: Run Lighthouse CI
+        run: lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
