@@ -37,6 +37,6 @@ jobs:
         run: lhci autorun | tee lhci-output.txt
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-          - name: Extract single report URLs
-            run: |
-              grep -o 'https://storage.googleapis.com[^ ]*\.report\.html' lhci-output.txt | sed 's|^|https://googlechrome.github.io/lighthouse-ci/viewer/?report=|'
+      - name: Extract single report URLs
+        run: |
+          grep -o 'https://storage.googleapis.com[^ ]*\.report\.html' lhci-output.txt | sed 's|^|https://googlechrome.github.io/lighthouse-ci/viewer/?report=|'
