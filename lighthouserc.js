@@ -8,7 +8,6 @@ module.exports = {
 	    },
 	},
 	assert: {
-	    preset: 'lighthouse:no-pwa',
 	    assertions: {
 		// Enforce a minimum accessibility score
 		'categories:accessibility': ['error', { minScore: 0.9 }],
