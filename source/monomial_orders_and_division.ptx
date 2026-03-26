@@ -242,7 +242,8 @@ def npoly_div(f,F) :
 	The analogous statement for multivariate polynomials rings is the following.
 	Let <m>I = \langle f_1, \ldots, f_s\rangle \subseteq k[x_1, \ldots, x_n]</m> be a finitely generated ideal.
 	For all <m>f \in k[x_1, \ldots, x_s]</m>, <m>f \in I</m> if and only if the ordered <m>s</m>-tuple <m>F = (f_1, \ldots, f_s)</m> divides <m>f</m><mdash/><ie/>, the remainder on division of <m>f</m> by <m>F</m> is zero.
-	It is clear that if the remainder on division of <m>f</m> by <m>F</m>, then <m>f \in I</m>.
+	It is clear that if the remainder on division of <m>f</m> by <m>F</m> is zero, then
+	<md>f = q_1f_1 + \cdots + q_sf_s + 0 \in I</md>.
 	However, the converse is <alert>false</alert>.
       </p>
       <p>
@@ -250,7 +251,7 @@ def npoly_div(f,F) :
 	The second computation above shows us that
 	<md>f = x(y^2 - 1) + 0(xy - 1) \in I</md>,
 	even though the reaminder on division by <m>F = (xy - 1, y^2 - 1)</m> is not zero.
-	This suggests we require more sophisticated machinery to answer the multivariate ideal membership problem.
+	This suggests a need to develop more sophisticated machinery to answer the multivariate ideal membership problem.
       </p>
     </remark>
   </subsection>
