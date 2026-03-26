@@ -54,7 +54,7 @@
     </sage>
   </subsection>
 
-  <subsection>
+  <subsection xml:id="constructing_polynomial_rings">
     <title>Polynomial Rings</title>
     <p>
       We can form polynomial rings using the construction <c>Name.&lt;var_1, ..., var_n> = PolynomialRing(Ring)</c>, where <c>Ring</c> is some ring object from Sage (Note: Remember that fields are also rings) and <c>Name</c> is a name of your choosing for the polynomial ring, <eg/> <m>R</m> (for ring).
@@ -102,7 +102,7 @@
     </example>
   </subsection>
 
-  <subsection>
+  <subsection xml:id="univarite_division_algorithm">
     <title>The Division Algorithm</title>
     <p>
       For univariate polynomial rings, Sage implements the division algorithm through the function <c>quo_rem</c>.
@@ -121,7 +121,7 @@
     </sage>
   </subsection>
 
-  <subsection>
+  <subsection xml:id="univariate_euclidean_algorithm">
     <title>The Euclidean Algorithm</title>
     <p>
       Sage implements the Euclidean algorithm through the function <c>gcd</c>.
