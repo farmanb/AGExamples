@@ -2,9 +2,6 @@ module.exports = {
     ci: {
 	collect: {
 	    staticDistDir: './output/web',
-	    settings: {
-		onlyCategories: ['accessibility']
-	    },
 	},
 	assert: {
 	    assertions: {
