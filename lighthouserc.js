@@ -2,7 +2,6 @@ module.exports = {
     ci: {
 	collect: {
 	    staticDistDir: './output/web',
-	    numberOfRuns: 1,
 	    settings: {
 		onlyCategories: ['accessibility']
 	    },
