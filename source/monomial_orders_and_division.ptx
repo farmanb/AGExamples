@@ -246,7 +246,7 @@ def npoly_div(f,F) :
 	However, the converse is <alert>false</alert>.
       </p>
       <p>
-	Changing the order of the generators does <em>not</em> change the ideal, so <m>I = langle xy - 1, y^2 - 1\rangle = \langle y^2 - 1, xy - 1 \rangle</m>.
+	Changing the order of the generators does <em>not</em> change the ideal, so <m>I = \langle xy - 1, y^2 - 1\rangle = \langle y^2 - 1, xy - 1 \rangle</m>.
 	The second computation above shows us that
 	<md>f = x(y^2 - 1) + 0(xy - 1) \in I</md>,
 	even though the reaminder on division by <m>F = (xy - 1, y^2 - 1)</m> is not zero.
